@@ -12,8 +12,10 @@
         <li><strong>Email:</strong> {{friend.email}}</li>
         </ul>
     </li> -->
-    <friend-contact v-for="friend of friends" :key="friend.id" :name="friend.name"
-      :phoneNumber="friend.phone" :email-address="friend.email" :is-favourite="friend.favourite"></friend-contact>
+    <friend-contact v-for="friend of friends" :key="friend.id" :id="friend.id" :name="friend.name"
+      :phoneNumber="friend.phone" :email-address="friend.email" :is-favourite="friend.favourite"
+      @toggle-favourite="toggleFavouriteStatus">
+    </friend-contact>
   </ul>
   </section>
 </template>
@@ -44,6 +46,12 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+      toggleFavouriteStatus (friendId) {
+        const identifiedFriend = this.friends.find( friend => friend.id === friendId);
+        identifiedFriend.favourite = !identifiedFriend.favourite;
+      }
     }
 }
 </script>
