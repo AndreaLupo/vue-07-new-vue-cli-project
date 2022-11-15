@@ -41,6 +41,18 @@ export default {
             default: false
         },
     },
+    // emits: ['toggle-favourite'],
+    emits: {
+        'toggle-favourite': function (id) {
+            if(id) {
+                return true;
+            }
+            else {
+                console.warn('Id is missing');
+                return false;
+            }
+        }
+    },
     methods: {
         toggleDetails() {
             this.detailsAreVisible = !this.detailsAreVisible;
