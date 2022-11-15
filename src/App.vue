@@ -3,6 +3,8 @@
     <header>
         <h2>My friends</h2>
     </header>
+    
+    <new-friend @add-contact="addNewContact"></new-friend>
     <ul>
     <!-- <li v-for="friend of friends" :key="friend.id">
         <h2>{{friend.name}}</h2>
@@ -22,11 +24,12 @@
 
 <script>
 import FriendContact from './components/FriendContact.vue';
+import NewFriend from './components/NewFriend.vue';
 /**
  * Default export for this file when importing in ES-2015 sintax.
  */
 export default {
-  components: { FriendContact },
+  components: { FriendContact, NewFriend },
     data () {
         return {
             friends: [
@@ -51,6 +54,17 @@ export default {
       toggleFavouriteStatus (friendId) {
         const identifiedFriend = this.friends.find( friend => friend.id === friendId);
         identifiedFriend.favourite = !identifiedFriend.favourite;
+      },
+      addNewContact(name, phone, email) {
+        const newFrientContact = {
+          id: new Date().toISOString,
+          name: name,
+          phone: phone,
+          email: email,
+          isFavourite: false
+        };
+        this.friends.push(newFrientContact);
+      
       }
     }
 }
@@ -88,7 +102,8 @@ header {
   list-style: none;
 }
 
-#app li {
+#app li, 
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
