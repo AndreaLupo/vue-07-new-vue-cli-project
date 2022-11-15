@@ -33,14 +33,14 @@ export default {
                     name: 'Manuel Lorenz',
                     phone: '0123 3532 123',
                     email: 'manuel@localhost.com',
-                    favourite: '1'
+                    favourite: true
                 },
                 { 
                     id: 'julie',
                     name: 'Julie Jonez',
                     phone: '0123 3532 124',
                     email: 'julie@localhost.com',
-                    favourite: '0'
+                    favourite: false
                 }
             ]
         };
