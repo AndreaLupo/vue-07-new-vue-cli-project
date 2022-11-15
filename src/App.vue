@@ -12,7 +12,8 @@
         <li><strong>Email:</strong> {{friend.email}}</li>
         </ul>
     </li> -->
-    <friend-contact></friend-contact>
+    <friend-contact v-for="friend of friends" :key="friend.id" :name="friend.name"
+      :phoneNumber="friend.phone" :email-address="friend.email"></friend-contact>
   </ul>
   </section>
 </template>
