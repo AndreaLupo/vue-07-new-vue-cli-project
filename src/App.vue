@@ -13,7 +13,7 @@
         </ul>
     </li> -->
     <friend-contact v-for="friend of friends" :key="friend.id" :name="friend.name"
-      :phoneNumber="friend.phone" :email-address="friend.email"></friend-contact>
+      :phoneNumber="friend.phone" :email-address="friend.email" :is-favourite="friend.favourite"></friend-contact>
   </ul>
   </section>
 </template>
@@ -32,13 +32,15 @@ export default {
                     id: 'manuel',
                     name: 'Manuel Lorenz',
                     phone: '0123 3532 123',
-                    email: 'manuel@localhost.com'
+                    email: 'manuel@localhost.com',
+                    favourite: '1'
                 },
                 { 
                     id: 'julie',
                     name: 'Julie Jonez',
                     phone: '0123 3532 124',
-                    email: 'julie@localhost.com'
+                    email: 'julie@localhost.com',
+                    favourite: '0'
                 }
             ]
         };
