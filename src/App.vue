@@ -16,7 +16,7 @@
     </li> -->
     <friend-contact v-for="friend of friends" :key="friend.id" :id="friend.id" :name="friend.name"
       :phoneNumber="friend.phone" :email-address="friend.email" :is-favourite="friend.favourite"
-      @toggle-favourite="toggleFavouriteStatus">
+      @toggle-favourite="toggleFavouriteStatus" @delete-friend="deleteContact">
     </friend-contact>
   </ul>
   </section>
@@ -65,6 +65,9 @@ export default {
         };
         this.friends.push(newFrientContact);
       
+      },
+      deleteContact(friendId) {
+        this.friends = this.friends.filter(friend => friend.id !== friendId);
       }
     }
 }

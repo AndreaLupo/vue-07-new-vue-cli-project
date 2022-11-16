@@ -1,6 +1,7 @@
 <template>
   <li>
     <h2>{{name}} {{ isFavourite ? '(Favourite)': ''}}</h2>
+    <button @click="deleteFriend"> Delete</button>
     <button @click="toggleFavourite"> Toggle favourite</button>
     <button @click="toggleDetails">{{detailsAreVisible ? 'Hide': 'Show'}} Details</button>
     <ul v-if="detailsAreVisible">
@@ -51,6 +52,9 @@ export default {
                 console.warn('Id is missing');
                 return false;
             }
+        },
+        'delete-friend': function() {
+            return true;
         }
     },
     methods: {
@@ -60,6 +64,9 @@ export default {
         toggleFavourite() {
             // this.friendIsFavourite = !this.friendIsFavourite;
             this.$emit('toggle-favourite', this.id);
+        },
+        deleteFriend() {
+            this.$emit('delete-friend', this.id);
         }
     }
 }
